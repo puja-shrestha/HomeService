@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/trendingCard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardElevation="4dp"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/colorWhite"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image3"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home Wall Cleaning"
+            android:layout_below="@id/image"
+            android:textSize="12dp"
+            android:textColor="#444"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/title"
+            android:paddingLeft="5dp">
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_below="@+id/title"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/sans"
+                android:text="Starting from"
+                android:textColor="@color/colorBlack"
+                android:textSize="10dp"/>
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.3"
+                android:textSize="@dimen/very_small_text_size"
+                android:fontFamily="@font/sans"
+                android:text="Rs. 1000"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

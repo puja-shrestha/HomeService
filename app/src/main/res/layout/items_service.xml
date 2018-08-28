@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/serviceCard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/image"
+        android:src="@drawable/image4"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:textSize="@dimen/small_text_size"
+        android:fontFamily="@font/sans"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"
+        android:text="Services"
+        android:textStyle="bold"/>
+
+</LinearLayout>
