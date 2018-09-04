@@ -1,6 +1,9 @@
 package com.example.puza.homeservice.adapter;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.puza.homeservice.R;
+import com.example.puza.homeservice.fragments.ServiceDetailFragment;
 import com.example.puza.homeservice.model.ServiceItems;
 
 import java.util.List;
@@ -18,6 +22,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.MyViewHo
 
     private List<ServiceItems> itemList;
     Activity context;
+    ProgressDialog  progressDialog;
 
     public ServiceAdapter(Activity context, List<ServiceItems> itemList) {
         this.itemList = itemList;
@@ -33,6 +38,34 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.MyViewHo
 
             image = (CircleImageView) view.findViewById(R.id.image);
             name = (TextView) view.findViewById(R.id.name);
+
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    progressDialog = new ProgressDialog(context);
+                    progressDialog.setMessage("Loading..."); // Setting Message
+                    progressDialog.setTitle("Please wait"); // Setting Title
+                    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+                    progressDialog.show(); // Display Progress Dialog
+                    progressDialog.setCancelable(false);
+                    new Thread(new Runnable() {
+                        public void run() {
+                            try {
+                                Thread.sleep(2000);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            progressDialog.dismiss();
+
+                            ServiceDetailFragment fragment = new ServiceDetailFragment();
+                            FragmentTransaction transaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
+                            transaction.replace(R.id.frame_container, fragment);
+                            transaction.commit();
+                        }
+                    }).start();
+                }
+            });
         }
     }
 

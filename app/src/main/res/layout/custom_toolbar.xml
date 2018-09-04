@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
+    android:layout_height="50dp"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
@@ -21,30 +21,33 @@
         <ImageView
             android:id="@+id/navigationMenu"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.2"
             android:layout_height="match_parent"
+            android:paddingLeft="5dp"
             android:layout_alignParentRight="true"
             android:background="@color/colorPrimary"
             android:src="@drawable/ic_action_menu_button"/>
 
-        <ImageView
+        <TextView
             android:id="@+id/logo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="8"
-            android:gravity="center"
-            android:text="Home"
-            android:src="@drawable/ic_action_gharko_real_logo"
+            android:gravity="center|start"
+            android:paddingLeft="15dp"
+            android:text="GHARKO"
+            android:textSize="18dp"
+            android:textColor="@color/colorWhite"
             android:fontFamily="sans-serif"
             android:background="@color/colorPrimary"/>
 
-        <ImageView
-            android:id="@+id/rightPart"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:background="@color/colorPrimary"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/rightPart"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:background="@color/colorPrimary"/>-->
 
     </LinearLayout>
 

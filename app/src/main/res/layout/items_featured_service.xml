@@ -16,8 +16,7 @@
         android:layout_height="140dp"
         android:gravity="center"
         android:paddingBottom="5dp"
-        android:padding="5dp"
-        android:background="@drawable/button_backgroung_rectangle">
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/name"

@@ -2,12 +2,19 @@ package com.example.puza.homeservice;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.puza.homeservice.fragments.HomeFragment;
 import com.example.puza.homeservice.fragments.MoreFragment;
@@ -15,7 +22,10 @@ import com.example.puza.homeservice.fragments.ProfileFragment;
 import com.example.puza.homeservice.fragments.SearchFragment;
 import com.example.puza.homeservice.helper.BottomNavigationHelper;
 
-public class MainActivity extends AppCompatActivity {
+import nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout;
+import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String SELECTED_ITEM = "arg_selected_item";
 
@@ -24,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     FragmentTransaction transaction;
 
     Toolbar toolbar;
+    //Navigation Drawer
+    private DrawerLayout mDrawerLayout;
+    private ImageView navigationMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +44,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        ///////////// Navigation Drawer ///////////////
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
+        navigationMenu = (ImageView)findViewById(R.id.navigationMenu);
+        navigationMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+//        DuoDrawerLayout drawerLayout = (DuoDrawerLayout) findViewById(R.id.nav_view);
+//        DuoDrawerToggle drawerToggle = new DuoDrawerToggle(this, drawerLayout, toolbar,
+//                R.string.navigation_drawer_open,
+//                R.string.navigation_drawer_close);
+//
+//        drawerLayout.setDrawerListener(drawerToggle);
+//        drawerToggle.syncState();
+
+        ////////////////////////////////////////////////
 
         setUpBottomNavigation();
     }
@@ -93,5 +129,45 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         transaction.commit();
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        Fragment fragment = null;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        int id = item.getItemId();
+
+        if(id == R.id.profile){
+            fragment = new ProfileFragment();
+            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+
+        }else if (id == R.id.services){
+            fragment = new HomeFragment();
+            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+
+        }else if (id == R.id.packages){
+
+        }else if (id == R.id.cart){
+
+        }else if (id == R.id.about){
+
+        }else if (id == R.id.gallery){
+
+        }else if (id == R.id.booking){
+
+        }else if (id == R.id.location){
+
+        }else if (id == R.id.terms_conditions){
+
+        }else if (id == R.id.logout){
+
+        }
+
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

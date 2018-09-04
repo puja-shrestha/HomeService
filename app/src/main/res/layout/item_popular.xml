@@ -14,16 +14,13 @@
     <RelativeLayout
         android:layout_width="250dp"
         android:layout_height="160dp"
-        android:gravity="center"
-        android:paddingBottom="5dp"
-        android:padding="5dp">
+        android:gravity="center">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/image"
             android:scaleType="fitXY"
-            android:paddingTop="5dp"
             android:src="@drawable/image3"/>
 
     </RelativeLayout>

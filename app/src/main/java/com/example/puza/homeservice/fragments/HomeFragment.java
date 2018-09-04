@@ -10,8 +10,13 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.example.puza.homeservice.R;
 import com.example.puza.homeservice.adapter.FeaturedServiceAdapter;
 import com.example.puza.homeservice.adapter.PopularServiceAdapter;
@@ -23,6 +28,7 @@ import com.example.puza.homeservice.model.ServiceItems;
 import com.example.puza.homeservice.model.TrendingServiceItems;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -36,26 +42,30 @@ public class HomeFragment extends Fragment {
     @BindView(R.id.search)
     EditText search;
 
-    @BindView(R.id.imageview)
-    ImageView imageView;
+//    @BindView(R.id.imageview)
+//    ImageView imageView;
 
     @BindView(R.id.textview_service)
     TextView textview_service;
 
-    @BindView(R.id.subtitle_one)
-    TextView subtitle_one;
+//    @BindView(R.id.subtitle_one)
+//    TextView subtitle_one;
 
     @BindView(R.id.textview_trending)
     TextView textview_trending;
-
-    @BindView(R.id.subtitle_two)
-    TextView subtitle_two;
+//
+//    @BindView(R.id.subtitle_two)
+//    TextView subtitle_two;
 
     @BindView(R.id.see_all_one)
     TextView see_all_one;
 
     @BindView(R.id.see_all_two)
     TextView see_all_two;
+
+    //slider
+    private SliderLayout mDemoSlider;
+    private LinearLayout mLinearLayout;
 
     /*---------------circle service items----------------------*/
     RecyclerView recyclerView;
@@ -104,6 +114,10 @@ public class HomeFragment extends Fragment {
         getActivity().getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        //slider
+        mDemoSlider = (SliderLayout)view.findViewById(R.id.sliderView);
+        mLinearLayout = (LinearLayout) view.findViewById(R.id.pagesContainer);
+        setupSlider();
 
         /*-----------------------Circle image-------------------------------------*/
         recyclerView = (RecyclerView) view.findViewById(R.id.serviceRecyclerView);
@@ -199,10 +213,10 @@ public class HomeFragment extends Fragment {
     public List<TrendingServiceItems> getTrendingServiceItem(){
         trendingItems = new ArrayList<TrendingServiceItems>();
 
-        trendingItems.add(new TrendingServiceItems(R.drawable.image3, "Home Wall Cleaning", "Starting from", "Rs 1000"));
-        trendingItems.add(new TrendingServiceItems(R.drawable.image4, "Home Wall Cleaning", "Starting from", "Rs 1000"));
-        trendingItems.add(new TrendingServiceItems(R.drawable.image5, "Home Wall Cleaning", "Starting from", "Rs 1000"));
-        trendingItems.add(new TrendingServiceItems(R.drawable.image2, "Home Wall Cleaning", "Starting from", "Rs 1000"));
+        trendingItems.add(new TrendingServiceItems(R.drawable.plumber2, "Home Wall Cleaning", "Starting from", "Rs 1000"));
+        trendingItems.add(new TrendingServiceItems(R.drawable.repairing, "Home Wall Cleaning", "Starting from", "Rs 1000"));
+        trendingItems.add(new TrendingServiceItems(R.drawable.plumber3, "Home Wall Cleaning", "Starting from", "Rs 1000"));
+        trendingItems.add(new TrendingServiceItems(R.drawable.repair, "Home Wall Cleaning", "Starting from", "Rs 1000"));
 
         return trendingItems;
     }
@@ -210,10 +224,10 @@ public class HomeFragment extends Fragment {
     public List<PopularServiceItems>  getPopularServiceItem(){
         popularItems = new ArrayList<PopularServiceItems>();
 
-        popularItems.add(new PopularServiceItems(R.drawable.image3));
-        popularItems.add(new PopularServiceItems(R.drawable.image4));
-        popularItems.add(new PopularServiceItems(R.drawable.image5));
-        popularItems.add(new PopularServiceItems(R.drawable.image2));
+        popularItems.add(new PopularServiceItems(R.drawable.plumber));
+        popularItems.add(new PopularServiceItems(R.drawable.repair_mobile));
+        popularItems.add(new PopularServiceItems(R.drawable.plumber1));
+        popularItems.add(new PopularServiceItems(R.drawable.repairing));
 
         return popularItems;
     }
@@ -221,14 +235,45 @@ public class HomeFragment extends Fragment {
     private List<FeaturedServiceItems> getFeaturedServiceItem() {
         featuredItems = new ArrayList<FeaturedServiceItems>();
 
-        featuredItems.add(new FeaturedServiceItems(R.drawable.image1, "Home Wall Cleaning"));
-        featuredItems.add(new FeaturedServiceItems(R.drawable.image2, "Home Electrician"));
-        featuredItems.add(new FeaturedServiceItems(R.drawable.image3, "Dining Table Setup"));
-        featuredItems.add(new FeaturedServiceItems(R.drawable.image5, "Repairing"));
-        featuredItems.add(new FeaturedServiceItems(R.drawable.image4, "Washing"));
-        featuredItems.add(new FeaturedServiceItems(R.drawable.image1, "Home Painting"));
+        featuredItems.add(new FeaturedServiceItems(R.drawable.plumber1, "Home Wall Cleaning"));
+        featuredItems.add(new FeaturedServiceItems(R.drawable.repair_mobile, "Home Electrician"));
+        featuredItems.add(new FeaturedServiceItems(R.drawable.repairing, "Dining Table Setup"));
+        featuredItems.add(new FeaturedServiceItems(R.drawable.repair, "Repairing"));
+        featuredItems.add(new FeaturedServiceItems(R.drawable.plumber, "Washing"));
+        featuredItems.add(new FeaturedServiceItems(R.drawable.plumber3, "Home Painting"));
 
         return featuredItems;
+    }
+
+    //slider
+    private void setupSlider() {
+        HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put("Cleaning",R.drawable.repair_mobile);
+        file_maps.put("Repair",R.drawable.plumber3);
+        file_maps.put("Washing",R.drawable.repairing);
+        file_maps.put("Plumber", R.drawable.plumber1);
+        file_maps.put("Repair", R.drawable.plumber);
+
+        for(String name : file_maps.keySet()){
+            TextSliderView textSliderView = new TextSliderView(getContext());
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(file_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.Fit);
+
+            //add your extra information
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra",name);
+
+            mDemoSlider.addSlider(textSliderView);
+        }
+
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Top);
+        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+        mDemoSlider.setDuration(1000);
     }
 
     @Override
