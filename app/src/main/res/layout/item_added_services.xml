@@ -24,7 +24,7 @@
         android:id="@+id/addedServiceSubTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Approximate price: Nrs. 400"
+        android:text="Approximate price: NPR. 400"
         android:textSize="12dp"/>
 
 </LinearLayout>

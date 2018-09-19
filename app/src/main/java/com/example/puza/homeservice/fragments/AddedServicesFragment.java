@@ -71,11 +71,11 @@ public class AddedServicesFragment extends Fragment {
     private List<AddedServiceItems> getAddedServiceItem() {
         addedServiceItems = new ArrayList<AddedServiceItems>();
 
-        addedServiceItems.add(new AddedServiceItems("Plumbing", "Approximate Price : Nrs. 400"));
-        addedServiceItems.add(new AddedServiceItems("Repairing", "Approximate Price : Nrs. 900"));
-        addedServiceItems.add(new AddedServiceItems("Mobile Repair", "Approximate Price : Nrs. 400"));
-        addedServiceItems.add(new AddedServiceItems("Car Rental", "Approximate Price : Nrs. 700"));
-        addedServiceItems.add(new AddedServiceItems("Electrics", "Approximate Price : Nrs. 300"));
+        addedServiceItems.add(new AddedServiceItems("Gadgets repair", "Approximate Price : NPR. 400"));
+        addedServiceItems.add(new AddedServiceItems("Repairing", "Approximate Price : NPR. 900"));
+        addedServiceItems.add(new AddedServiceItems("Mobile Repair", "Approximate Price : NPR. 400"));
+        addedServiceItems.add(new AddedServiceItems("Car Rental", "Approximate Price : NPR. 700"));
+        addedServiceItems.add(new AddedServiceItems("Plumbing", "Approximate Price : NPR. 300"));
 
         return addedServiceItems;
     }

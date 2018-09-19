@@ -23,7 +23,7 @@
                 android:layout_height="80dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:padding="10dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_action_tap"/>
 
             <TextView
@@ -35,8 +35,8 @@
                 android:text="Item One"
                 android:gravity="center"
                 android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/colorAccent"
-                android:textSize="13dp"/>
+                android:textColor="#000"
+                android:textSize="11dp"/>
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

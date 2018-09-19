@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.puza.homeservice.fragments.services.Tab1;
+import com.example.puza.homeservice.fragments.services.ServicesTypesFragment;
 import com.example.puza.homeservice.fragments.services.Tab2;
 import com.example.puza.homeservice.fragments.services.Tab3;
 import com.example.puza.homeservice.fragments.services.Tab4;
@@ -25,7 +25,7 @@ public class PagerTabAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                Tab1 tab1 = new Tab1();
+                ServicesTypesFragment tab1 = new ServicesTypesFragment();
                 return tab1;
             case 1:
                 Tab2 tab2 = new Tab2();

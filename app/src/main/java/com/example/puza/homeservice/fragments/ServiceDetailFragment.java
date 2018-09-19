@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ public class ServiceDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_service_detail, container, false);
 
         KenBurnsView kbv = (KenBurnsView) view.findViewById(R.id.image_background);
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         button =(Button) view.findViewById(R.id.book_btn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +59,6 @@ public class ServiceDetailFragment extends Fragment {
                 transaction.commit();
             }
         });
-
 
         /*------------------Trending Items--------------------------*/
         otherServicesRecyclerView = (RecyclerView) view.findViewById(R.id.otherServiceRecyclerView);

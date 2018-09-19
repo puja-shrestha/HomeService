@@ -40,7 +40,7 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:titleTextAppearance="@style/Toolbar.TitleText"
                 app:titleTextColor="@color/colorWhite"
-                app:title="Kankai Technology"
+                app:title="GARKO Pvt. Ltd."
                 app:layout_collapseMode="pin">
 
             </android.support.v7.widget.Toolbar>
@@ -88,7 +88,7 @@
                             android:id="@+id/partnersHeading"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kankai Technology"
+                            android:text="GARKO Pvt. Ltd."
                             android:textSize="18dp"
                             android:fontFamily="@font/roboto_regular"
                             android:textColor="@color/black"/>
@@ -97,7 +97,7 @@
                             android:id="@+id/partnersPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nrs. 600"
+                            android:text="NPR. 600"
                             android:textSize="12dp"
                             android:fontFamily="@font/roboto_regular"
                             android:textColor="@color/colorPrimary"/>
@@ -185,7 +185,7 @@
                             android:id="@+id/textViewPrice"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Approximate price: Nrs. 400"
+                            android:text="Approximate price: NPR. 400"
                             android:textSize="12dp"/>
 
                         <TextView
@@ -201,7 +201,7 @@
                             android:id="@+id/textViewPrice2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Approximate price: Nrs. 300"
+                            android:text="Approximate price: NPR. 300"
                             android:textSize="12dp"/>
 
                         <TextView
@@ -217,7 +217,7 @@
                             android:id="@+id/textViewPrice3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Approximate price: Nrs. 200"
+                            android:text="Approximate price: NPR. 200"
                             android:textSize="12dp"/>
 
                     </LinearLayout>

@@ -5,7 +5,10 @@
     android:layout_height="wrap_content"
     app:cardElevation="4dp"
     android:id="@+id/allServicesCard"
-    android:layout_margin="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginLeft="15dp"
     app:cardBackgroundColor="@color/colorWhite"
     android:foreground="?attr/selectableItemBackground"
     android:clickable="true">
@@ -23,7 +26,6 @@
             android:layout_weight="1"
             android:scaleType="fitXY"
             android:layout_margin="5dp"
-            android:paddingLeft="5dp"
             android:id="@+id/allServicesImage"
             android:src="@drawable/repair"/>
 

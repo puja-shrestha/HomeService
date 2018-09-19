@@ -40,7 +40,7 @@ public class AllServicesFragment extends Fragment implements TabLayout.OnTabSele
         tabLayout=(TabLayout)view.findViewById(R.id.tabLayout);
 
         //Adding the tabs using addTab() method
-        tabLayout.addTab(tabLayout.newTab().setText("Mobile Repair"));
+        tabLayout.addTab(tabLayout.newTab().setText("Gadgets Repair"));
         tabLayout.addTab(tabLayout.newTab().setText("Plumber"));
         tabLayout.addTab(tabLayout.newTab().setText("Washing"));
         tabLayout.addTab(tabLayout.newTab().setText("Repairing"));

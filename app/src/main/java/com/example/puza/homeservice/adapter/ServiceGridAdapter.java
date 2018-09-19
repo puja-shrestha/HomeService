@@ -2,8 +2,11 @@ package com.example.puza.homeservice.adapter;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +36,9 @@ public class ServiceGridAdapter extends RecyclerView.Adapter<ServiceGridAdapter.
             super(itemView);
             title =(TextView) itemView.findViewById(R.id.title);
             thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
+//            thumbnail.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimary), PorterDuff.Mode.SRC_IN); OR
 
+            thumbnail.setColorFilter(Color.argb(255, 22, 147, 128)); // White Tint
             thumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

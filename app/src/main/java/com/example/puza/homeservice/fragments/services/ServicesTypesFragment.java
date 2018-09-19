@@ -16,7 +16,7 @@ import com.example.puza.homeservice.model.AllServiceItems;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tab1 extends Fragment {
+public class ServicesTypesFragment extends Fragment {
 
     /*---------------featured items----------------------*/
     RecyclerView allServiceRecyclerView;
@@ -29,7 +29,7 @@ public class Tab1 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.tab1, container, false);
+    View view = inflater.inflate(R.layout.fragment_service_types, container, false);
 
     /*------------------Service List Items--------------------------*/
     allServiceRecyclerView = (RecyclerView) view.findViewById(R.id.serviceListingRecyclerView);
@@ -54,25 +54,25 @@ public class Tab1 extends Fragment {
     private List<AllServiceItems> getAllServiceItem() {
         allServiceItems = new ArrayList<AllServiceItems>();
 
-        allServiceItems.add(new AllServiceItems(R.drawable.repairing, "Home Deep Cleaning"));
-        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Home Basic Cleaning"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Tank Cleaning Service"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "On Demand Cleaner"));
-        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "Home Painting"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Home Deep Cleaning"));
+        allServiceItems.add(new AllServiceItems(R.drawable.repairing, "Desktop Services"));
+        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Laptop Servicing"));
+        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Display Services"));
+        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "Apple Product Servicing"));
+        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "CCTV Camera Services & Repair"));
+        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Access Control Services"));
+        allServiceItems.add(new AllServiceItems(R.drawable.repairing, "Internet Network Services"));
 
-        allServiceItems.add(new AllServiceItems(R.drawable.repairing, "Home Deep Cleaning"));
-        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Home Basic Cleaning"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Tank Cleaning Service"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "On Demand Cleaner"));
-        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "Home Painting"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Home Deep Cleaning"));
-
-        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Home Basic Cleaning"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Tank Cleaning Service"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "On Demand Cleaner"));
-        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "Home Painting"));
-        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Home Deep Cleaning"));
+        //        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Home Basic Cleaning"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Tank Cleaning Service"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "On Demand Cleaner"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "Home Painting"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Home Deep Cleaning"));
+//
+//        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Home Basic Cleaning"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Tank Cleaning Service"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "On Demand Cleaner"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "Home Painting"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Home Deep Cleaning"));
 
         return allServiceItems;
     }

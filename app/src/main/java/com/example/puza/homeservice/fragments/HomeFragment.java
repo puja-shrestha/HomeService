@@ -217,8 +217,8 @@ public class HomeFragment extends Fragment {
     private void prepareServiceList(){
         int[] serviceList = new int[]{
 
-                R.drawable.ic_action_tap,
                 R.drawable.ic_action_phone,
+                R.drawable.ic_action_tap,
                 R.drawable.ic_action_laundry,
                 R.drawable.ic_action_business_idea,
                 R.drawable.ic_action_electrics,
@@ -228,9 +228,9 @@ public class HomeFragment extends Fragment {
                 R.drawable.ic_action_sanitary,
         };
 
-        Service s =new Service("Plumber", serviceList[0]);
+        Service s =new Service("Gadgets repair", serviceList[0]);
         serviceGridList.add(s);
-        s =new Service("Gadgets repair", serviceList[1]);
+        s =new Service("Plumber", serviceList[1]);
         serviceGridList.add(s);
         s =new Service("Home Appliance", serviceList[2]);
         serviceGridList.add(s);

@@ -51,15 +51,9 @@ public class CheckoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                new SweetAlertDialog(getContext(), SweetAlertDialog.ERROR_TYPE)
-                        .setTitleText("Something Went Wrong!")
-                        .setContentText("Invalid mobile number!")
+                new SweetAlertDialog(getContext(), SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Order successful!")
                         .show();
-
-//                new SweetAlertDialog(getContext(), SweetAlertDialog.SUCCESS_TYPE)
-//                        .setTitleText("Good job!")
-//                        .setContentText("Order successful!")
-//                        .show();
             }
         });
 

@@ -10,68 +10,71 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.puza.homeservice.R;
-import com.example.puza.homeservice.adapter.SeeAllServicesAdapter;
-import com.example.puza.homeservice.model.SeeAllServiceItems;
+import com.example.puza.homeservice.adapter.AllServicesAdapter;
+import com.example.puza.homeservice.model.AllServiceItems;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Tab2 extends Fragment {
 
-    /*---------------see all services----------------------*/
-    RecyclerView seeAllServiceRecyclerView;
-    private RecyclerView.LayoutManager seeAllLayoutManager;
-    SeeAllServicesAdapter seeAllServicesAdapter;
-    List<SeeAllServiceItems> seeAllServiceItems;
+    /*---------------featured items----------------------*/
+    RecyclerView allServiceRecyclerView;
+    private RecyclerView.LayoutManager asLayoutManager;
+    AllServicesAdapter allServicesAdapter;
+    List<AllServiceItems> allServiceItems;
     /*---------------------------------------------------*/
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab2, container, false);
+        View view = inflater.inflate(R.layout.fragment_service_types, container, false);
 
-        /*------------------see all service List --------------------------*/
-        seeAllServiceRecyclerView = (RecyclerView) view.findViewById(R.id.seeAllRecyclerView);
+        /*------------------Service List Items--------------------------*/
+        allServiceRecyclerView = (RecyclerView) view.findViewById(R.id.serviceListingRecyclerView);
 
-        seeAllServiceItems = getSeeAllServiceItem();
+        allServiceItems = getAllServiceItem();
 
-        seeAllServiceRecyclerView.setHasFixedSize(true);
+        allServiceRecyclerView.setHasFixedSize(true);
 
-        seeAllLayoutManager = new LinearLayoutManager(
+        asLayoutManager = new LinearLayoutManager(
                 getContext(),
                 LinearLayoutManager.VERTICAL,
                 false
         );
-        seeAllServiceRecyclerView.setLayoutManager(seeAllLayoutManager);
-        seeAllServicesAdapter = new SeeAllServicesAdapter(getActivity(), seeAllServiceItems);
-        seeAllServiceRecyclerView.setAdapter(seeAllServicesAdapter);
+        allServiceRecyclerView.setLayoutManager(asLayoutManager);
+        allServicesAdapter = new AllServicesAdapter(getActivity(), allServiceItems);
+        allServiceRecyclerView.setAdapter(allServicesAdapter);
 
         /*------------------------------------------------------------*/
         return view;
     }
 
-    private List<SeeAllServiceItems> getSeeAllServiceItem() {
-        seeAllServiceItems = new ArrayList<SeeAllServiceItems>();
+    private List<AllServiceItems> getAllServiceItem() {
+        allServiceItems = new ArrayList<AllServiceItems>();
 
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.repairing, "AC Check Up","Ac Service and Repair","ADD", "VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.repair_mobile, "Mobile Check Up","Mobile Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber, "Plumbing","Plumbing service","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber3, "Home Appliance","Home Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.repair, "Car Rental","Car Rental","ADD","VIEW DETAILS"));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber1, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.repairing, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber2, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.repair_mobile, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber1, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.repair_mobile, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.repairing, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber3, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.plumber2, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
-        seeAllServiceItems.add(new SeeAllServiceItems(R.drawable.repair_mobile, "AC Check Up","Ac Service and Repair","ADD","VIEW DETAILS..."));
+        allServiceItems.add(new AllServiceItems(R.drawable.repairing, "Desktop Services"));
+        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Laptop Servicing"));
+        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Display Services"));
+        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "Apple Product Servicing"));
+        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "CCTV Camera Services & Repair"));
+        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Access Control Services"));
+        allServiceItems.add(new AllServiceItems(R.drawable.repairing, "Internet Network Services"));
 
+        //        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Home Basic Cleaning"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Tank Cleaning Service"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "On Demand Cleaner"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "Home Painting"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Home Deep Cleaning"));
+//
+//        allServiceItems.add(new AllServiceItems(R.drawable.repair, "Home Basic Cleaning"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber2, "Tank Cleaning Service"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber, "On Demand Cleaner"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.repair_mobile, "Home Painting"));
+//        allServiceItems.add(new AllServiceItems(R.drawable.plumber3, "Home Deep Cleaning"));
 
-        return seeAllServiceItems;
+        return allServiceItems;
     }
+
 }

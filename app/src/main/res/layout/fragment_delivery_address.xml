@@ -17,13 +17,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="Client Name"
             android:paddingBottom="5dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Puja"
+            android:text="Ram"
             android:textColor="@color/black"
             android:textSize="14dp"
             android:fontFamily="@font/roboto_regular"/>
@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+988 9823199697"
+            android:text="9841111111"
             android:textColor="@color/black"
             android:textSize="14dp"
             android:fontFamily="@font/roboto_regular"/>
