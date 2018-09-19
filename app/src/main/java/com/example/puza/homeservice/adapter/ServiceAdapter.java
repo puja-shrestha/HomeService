@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.puza.homeservice.R;
-import com.example.puza.homeservice.fragments.ServiceDetailFragment;
+import com.example.puza.homeservice.fragments.services.AllServicesFragment;
 import com.example.puza.homeservice.model.ServiceItems;
 
 import java.util.List;
@@ -58,7 +58,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.MyViewHo
                             }
                             progressDialog.dismiss();
 
-                            ServiceDetailFragment fragment = new ServiceDetailFragment();
+                            AllServicesFragment fragment = new AllServicesFragment();
                             FragmentTransaction transaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
                             transaction.replace(R.id.frame_container, fragment);
                             transaction.commit();

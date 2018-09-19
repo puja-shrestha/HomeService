@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:id="@+id/featuredCard"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     app:cardElevation="4dp"
-    android:layout_margin="5dp"
+    android:layout_margin="10dp"
     app:cardBackgroundColor="@android:color/white"
     android:foreground="?attr/selectableItemBackground"
-    android:clickable="true">
+    android:clickable="true"
+    card_view:cardCornerRadius="5dp">
 
     <RelativeLayout
         android:layout_width="130dp"
-        android:layout_height="140dp"
+        android:layout_height="130dp"
         android:gravity="center"
-        android:paddingBottom="5dp"
         android:padding="5dp">
 
         <TextView
@@ -23,12 +24,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12dp"
-            android:paddingBottom="5dp"
-            android:fontFamily="@font/sans"
+            android:fontFamily="@font/roboto_regular"
             android:text="Home wall cleaning"
             android:layout_centerHorizontal="true"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textColor="@android:color/black"/>
 
         <ImageView
             android:layout_width="wrap_content"

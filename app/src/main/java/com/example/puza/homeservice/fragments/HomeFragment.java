@@ -1,15 +1,19 @@
 package com.example.puza.homeservice.fragments;
 
+import android.content.res.Resources;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,14 +21,15 @@ import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
+
 import com.example.puza.homeservice.R;
 import com.example.puza.homeservice.adapter.FeaturedServiceAdapter;
 import com.example.puza.homeservice.adapter.PopularServiceAdapter;
-import com.example.puza.homeservice.adapter.ServiceAdapter;
+import com.example.puza.homeservice.adapter.ServiceGridAdapter;
 import com.example.puza.homeservice.adapter.TrendingServiceAdapter;
 import com.example.puza.homeservice.model.FeaturedServiceItems;
 import com.example.puza.homeservice.model.PopularServiceItems;
-import com.example.puza.homeservice.model.ServiceItems;
+import com.example.puza.homeservice.model.Service;
 import com.example.puza.homeservice.model.TrendingServiceItems;
 
 import java.util.ArrayList;
@@ -42,23 +47,14 @@ public class HomeFragment extends Fragment {
     @BindView(R.id.search)
     EditText search;
 
-//    @BindView(R.id.imageview)
-//    ImageView imageView;
-
-    @BindView(R.id.textview_service)
-    TextView textview_service;
-
-//    @BindView(R.id.subtitle_one)
-//    TextView subtitle_one;
+//    @BindView(R.id.textview_service)
+//    TextView textview_service;
 
     @BindView(R.id.textview_trending)
     TextView textview_trending;
-//
-//    @BindView(R.id.subtitle_two)
-//    TextView subtitle_two;
 
-    @BindView(R.id.see_all_one)
-    TextView see_all_one;
+//    @BindView(R.id.see_all_one)
+//    TextView see_all_one;
 
     @BindView(R.id.see_all_two)
     TextView see_all_two;
@@ -67,12 +63,19 @@ public class HomeFragment extends Fragment {
     private SliderLayout mDemoSlider;
     private LinearLayout mLinearLayout;
 
-    /*---------------circle service items----------------------*/
-    RecyclerView recyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    ServiceAdapter adapter;
-    List<ServiceItems> allItems;
-    /*---------------------------------------------------*/
+    /*---------------service items----------------------*/
+
+    private RecyclerView recyclerViewGrid;
+    private ServiceGridAdapter serviceAdapter;
+    private List<Service> serviceGridList;
+    /*--------------- service items----------------------*/
+
+//    /*---------------circle service items----------------------*/
+//    RecyclerView recyclerView;
+//    private RecyclerView.LayoutManager mLayoutManager;
+//    ServiceAdapter adapter;
+//    List<ServiceItems> allItems;
+//    /*---------------------------------------------------*/
 
     /*---------------Trending items----------------------*/
     RecyclerView trendingRecyclerView;
@@ -119,23 +122,39 @@ public class HomeFragment extends Fragment {
         mLinearLayout = (LinearLayout) view.findViewById(R.id.pagesContainer);
         setupSlider();
 
-        /*-----------------------Circle image-------------------------------------*/
-        recyclerView = (RecyclerView) view.findViewById(R.id.serviceRecyclerView);
 
-        allItems = getAllItemList();
+        /*-----------------------service grid -------------------------------------*/
+        recyclerViewGrid = (RecyclerView) view.findViewById(R.id.recyclerGrid);
 
-        recyclerView.setHasFixedSize(true);
+        serviceGridList = new ArrayList<>();
+        serviceAdapter = new ServiceGridAdapter(getContext(), serviceGridList);
 
-        mLayoutManager = new LinearLayoutManager(
-                getContext(),
-                LinearLayoutManager.HORIZONTAL,
-                false
-        );
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setNestedScrollingEnabled(false);
-        adapter = new ServiceAdapter(getActivity(), allItems);
-        recyclerView.setAdapter(adapter);
-        /*------------------------------------------------------------*/
+        RecyclerView.LayoutManager gLayoutManager = new GridLayoutManager(getContext(), 3);
+        recyclerViewGrid.setLayoutManager(gLayoutManager);
+        recyclerViewGrid.addItemDecoration(new HomeFragment.GridSpacingItemDecoration(3, dpToPx(0),true));
+        recyclerViewGrid.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewGrid.setAdapter(serviceAdapter);
+
+        prepareServiceList();
+        /*-----------------------service grid -------------------------------------*/
+
+//        /*-----------------------Circle image-------------------------------------*/
+//        recyclerView = (RecyclerView) view.findViewById(R.id.serviceRecyclerView);
+//
+//        allItems = getAllItemList();
+//
+//        recyclerView.setHasFixedSize(true);
+//
+//        mLayoutManager = new LinearLayoutManager(
+//                getContext(),
+//                LinearLayoutManager.HORIZONTAL,
+//                false
+//        );
+//        recyclerView.setLayoutManager(mLayoutManager);
+//        recyclerView.setNestedScrollingEnabled(false);
+//        adapter = new ServiceAdapter(getActivity(), allItems);
+//        recyclerView.setAdapter(adapter);
+//        /*------------------------------------------------------------*/
 
         /*------------------Trending Items--------------------------*/
         trendingRecyclerView = (RecyclerView) view.findViewById(R.id.trendingServiceRecyclerView);
@@ -156,7 +175,7 @@ public class HomeFragment extends Fragment {
         /*------------------------------------------------------------*/
 
         /*------------------Popular Items--------------------------*/
-       popularRecyclerView = (RecyclerView) view.findViewById(R.id.popularRecyclerView);
+        popularRecyclerView = (RecyclerView) view.findViewById(R.id.popularRecyclerView);
 
         popularItems = getPopularServiceItem();
 
@@ -194,29 +213,111 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    /*-------------------------------Grid Service--------------------------------------*/
+    private void prepareServiceList(){
+        int[] serviceList = new int[]{
 
-    private List<ServiceItems> getAllItemList() {
-        allItems = new ArrayList<ServiceItems>();
+                R.drawable.ic_action_tap,
+                R.drawable.ic_action_phone,
+                R.drawable.ic_action_laundry,
+                R.drawable.ic_action_business_idea,
+                R.drawable.ic_action_electrics,
+                R.drawable.ic_action_computer,
+                R.drawable.ic_action_rental,
+                R.drawable.ic_action_laundry,
+                R.drawable.ic_action_sanitary,
+        };
 
+        Service s =new Service("Plumber", serviceList[0]);
+        serviceGridList.add(s);
+        s =new Service("Gadgets repair", serviceList[1]);
+        serviceGridList.add(s);
+        s =new Service("Home Appliance", serviceList[2]);
+        serviceGridList.add(s);
+        s =new Service("Business Services", serviceList[3]);
+        serviceGridList.add(s);
+        s =new Service("Electric", serviceList[4]);
+        serviceGridList.add(s);
+        s =new Service("Repairing", serviceList[5]);
+        serviceGridList.add(s);
+        s =new Service("Car Rental", serviceList[6]);
+        serviceGridList.add(s);
+        s =new Service("Home Renovation ", serviceList[7]);
+        serviceGridList.add(s);
+        s =new Service("Sanitory", serviceList[8]);
+        serviceGridList.add(s);
 
-        allItems.add(new ServiceItems(R.drawable.group138, "Plumber"));
-        allItems.add(new ServiceItems(R.drawable.group136, "Washing"));
-        allItems.add(new ServiceItems(R.drawable.group137, "Repair"));
-        allItems.add(new ServiceItems(R.drawable.group135, "Plumber"));
-
-        allItems.add(new ServiceItems(R.drawable.group138, "Washing"));
-        allItems.add(new ServiceItems(R.drawable.group135, "Repair"));
-
-        return allItems;
+        serviceAdapter.notifyDataSetChanged();
     }
+
+    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration{
+
+        private int spanCount;
+        private int spacing;
+        private boolean inclidEdge;
+
+        public GridSpacingItemDecoration(int spanCount, int spacing, boolean inclidEdge) {
+            this.spanCount = spanCount;
+            this.spacing = spacing;
+            this.inclidEdge = inclidEdge;
+        }
+
+        public void getItemOffsets(Rect outrect, View view, RecyclerView parent, RecyclerView.State state){
+            int position = parent.getChildAdapterPosition(view); //item position
+            int column = position % spanCount; //item columns
+
+            if (inclidEdge){
+                outrect.left = spacing - column * spacing / spanCount;
+                outrect.right = (column + 1) * spacing / spanCount;
+
+                if (position < spanCount){
+                    outrect.top = spacing;
+                }
+                outrect.bottom = spacing;
+            }else {
+                outrect.left = column * spacing / spanCount;
+                outrect.right = spacing - (column + 1) * spacing / spanCount;
+                if(position>=spanCount){
+                    outrect.top = spacing;
+                }
+            }
+        }
+    }
+
+    private int dpToPx(int dp){
+        Resources r = getResources();
+        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+    }
+
+    /*------------------------------------------------------------------------------------------*/
+
+//    private List<ServiceItems> getAllItemList() {
+//        allItems = new ArrayList<ServiceItems>();
+//
+//
+//        allItems.add(new ServiceItems(R.drawable.group138, "Plumber"));
+//        allItems.add(new ServiceItems(R.drawable.group136, "Washing"));
+//        allItems.add(new ServiceItems(R.drawable.group137, "Repair"));
+//        allItems.add(new ServiceItems(R.drawable.group135, "Plumber"));
+//
+//        allItems.add(new ServiceItems(R.drawable.group137, "Repair"));
+//        allItems.add(new ServiceItems(R.drawable.group135, "Plumber"));
+//
+//        allItems.add(new ServiceItems(R.drawable.group138, "Washing"));
+//        allItems.add(new ServiceItems(R.drawable.group135, "Repair"));
+//        allItems.add(new ServiceItems(R.drawable.group137, "Repair"));
+//        allItems.add(new ServiceItems(R.drawable.group135, "Plumber"));
+//
+//        return allItems;
+//    }
 
     public List<TrendingServiceItems> getTrendingServiceItem(){
         trendingItems = new ArrayList<TrendingServiceItems>();
 
-        trendingItems.add(new TrendingServiceItems(R.drawable.plumber2, "Home Wall Cleaning", "Starting from", "Rs 1000"));
-        trendingItems.add(new TrendingServiceItems(R.drawable.repairing, "Home Wall Cleaning", "Starting from", "Rs 1000"));
-        trendingItems.add(new TrendingServiceItems(R.drawable.plumber3, "Home Wall Cleaning", "Starting from", "Rs 1000"));
-        trendingItems.add(new TrendingServiceItems(R.drawable.repair, "Home Wall Cleaning", "Starting from", "Rs 1000"));
+        trendingItems.add(new TrendingServiceItems(R.drawable.plumber1, "Plumber", "Starting from", "Rs 1000"));
+        trendingItems.add(new TrendingServiceItems(R.drawable.repairing, " Gadgets Repair", "Starting from", "Rs 1000"));
+        trendingItems.add(new TrendingServiceItems(R.drawable.plumber3, "Electrics", "Electric", "Rs 1000"));
+        trendingItems.add(new TrendingServiceItems(R.drawable.repair, "Home Appliances", "Starting from", "Rs 1000"));
 
         return trendingItems;
     }
@@ -224,7 +325,7 @@ public class HomeFragment extends Fragment {
     public List<PopularServiceItems>  getPopularServiceItem(){
         popularItems = new ArrayList<PopularServiceItems>();
 
-        popularItems.add(new PopularServiceItems(R.drawable.plumber));
+        popularItems.add(new PopularServiceItems(R.drawable.plumber3));
         popularItems.add(new PopularServiceItems(R.drawable.repair_mobile));
         popularItems.add(new PopularServiceItems(R.drawable.plumber1));
         popularItems.add(new PopularServiceItems(R.drawable.repairing));
@@ -235,7 +336,7 @@ public class HomeFragment extends Fragment {
     private List<FeaturedServiceItems> getFeaturedServiceItem() {
         featuredItems = new ArrayList<FeaturedServiceItems>();
 
-        featuredItems.add(new FeaturedServiceItems(R.drawable.plumber1, "Home Wall Cleaning"));
+        featuredItems.add(new FeaturedServiceItems(R.drawable.plumber, "Home Wall Cleaning"));
         featuredItems.add(new FeaturedServiceItems(R.drawable.repair_mobile, "Home Electrician"));
         featuredItems.add(new FeaturedServiceItems(R.drawable.repairing, "Dining Table Setup"));
         featuredItems.add(new FeaturedServiceItems(R.drawable.repair, "Repairing"));
@@ -273,7 +374,7 @@ public class HomeFragment extends Fragment {
         mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Top);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
-        mDemoSlider.setDuration(1000);
+        mDemoSlider.setDuration(2000);
     }
 
     @Override

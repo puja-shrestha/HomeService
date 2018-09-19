@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:padding="10dp"
+    android:id="@+id/linearAddedService"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/addedServiceTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home Deep Cleaning"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/addedServiceSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Approximate price: Nrs. 400"
+        android:textSize="12dp"/>
+
+</LinearLayout>

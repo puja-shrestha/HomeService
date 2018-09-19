@@ -45,4 +45,19 @@ dependencies {
     //duo navigation drawer
     implementation 'nl.psdcompany:duo-navigation-drawer:2.0.8'
 
+    //glide
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    //read more library
+    implementation 'com.borjabravo:readmoretextview:2.0.1'
+
+    //Dialogue
+    implementation 'com.github.f0ris.sweetalert:library:1.5.5'
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+
+    implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
+
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+
 }

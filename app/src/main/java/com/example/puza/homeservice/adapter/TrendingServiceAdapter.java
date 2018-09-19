@@ -1,7 +1,6 @@
 package com.example.puza.homeservice.adapter;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,8 +33,8 @@ public class TrendingServiceAdapter extends RecyclerView.Adapter<TrendingService
 
             image = (ImageView) view.findViewById(R.id.image);
             title = (TextView) view.findViewById(R.id.title);
-            subtitle = (TextView) view.findViewById(R.id.subtitle);
-            price = (TextView) view.findViewById(R.id.price);
+//            subtitle = (TextView) view.findViewById(R.id.subtitle);
+//            price = (TextView) view.findViewById(R.id.price);
 
         }
     }
@@ -54,8 +53,8 @@ public class TrendingServiceAdapter extends RecyclerView.Adapter<TrendingService
 
         holder.image.setImageResource(items.getImage());
         holder.title.setText(items.getTitle());
-        holder.subtitle.setText(items.getSubtitle());
-        holder.price.setText(items.getPrice());
+//        holder.subtitle.setText(items.getSubtitle());
+//        holder.price.setText(items.getPrice());
 
 //        holder.cardView.setOnClickListener(new View.OnClickListener() {
 //            @Override

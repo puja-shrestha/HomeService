@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".fragments.DeliveryAddressFragment">
+
+    <LinearLayout
+        android:id="@+id/addressLinear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:paddingBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Puja"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:fontFamily="@font/roboto_regular"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addressLinear2"
+        android:layout_below="@+id/addressLinear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:paddingBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+988 9823199697"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:fontFamily="@font/roboto_regular"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addressLinear3"
+        android:layout_below="@+id/addressLinear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:paddingBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kathmandu"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:fontFamily="@font/roboto_regular"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addressLinear4"
+        android:layout_below="@+id/addressLinear3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/add_new_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add New Address"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_backgroung_rectangle"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/checkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:layout_alignParentBottom="true"
+        android:background="@color/main_orange_color"
+        android:textColor="@color/colorWhite"/>
+</RelativeLayout>

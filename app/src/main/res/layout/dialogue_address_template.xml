@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="18dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Add New Address"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="14dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Why take hassel ? Simply click below and let us take care of the rest!"/>
+
+    <Button
+        android:id="@+id/pinBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Pin address "
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"/>
+
+    <TextView
+        android:id="@+id/or"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:padding="30dp"
+        android:text="OR"/>
+
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        android:background="@drawable/button_backgroung_rectangle"
+        android:hint="Write your Address"/>
+    <Button
+        android:id="@+id/btn_dialogue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Add new address"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>

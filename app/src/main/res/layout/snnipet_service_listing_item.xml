@@ -28,7 +28,7 @@
         android:layout_weight="3"
         android:fontFamily="@font/sans"
         android:maxLines="1"
-        android:text="Rs. 1400"
+        android:text="Nrs. 1400"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/very_small_text_size"
         android:textStyle="bold"

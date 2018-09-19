@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="false"
-        android:background="#c2c0c0"
+        android:background="#f1f1f1"
         android:layout_alignParentTop="true"
         android:focusableInTouchMode="true">
 
@@ -21,7 +21,7 @@
             android:padding="5dp"
             android:layout_margin="7dp"
             android:drawableLeft="@drawable/ic_action_search_icon"
-            android:background="@drawable/button_background"/>
+            android:background="@drawable/button_background"/>z
     </RelativeLayout>
 
     <ScrollView
@@ -38,7 +38,7 @@
                 android:id="@+id/relative_layout"
                 android:layout_below="@+id/layout_one"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="215dp"
                 android:layout_marginTop="5dp">
 
                 <FrameLayout
@@ -63,62 +63,79 @@
 
             </RelativeLayout>
 
+            <!--<LinearLayout-->
+            <!--android:id="@+id/layout_two"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:padding="15dp"-->
+            <!--android:layout_marginBottom="5dp">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textview_service"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:fontFamily="@font/sans"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:text="Choose The Services"-->
+            <!--android:textSize="14dp"-->
+            <!--android:textStyle="bold"/>-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/see_all_one"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:fontFamily="@font/sans"-->
+            <!--android:layout_weight="1"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--android:text="See all"-->
+            <!--android:gravity="center"-->
+            <!--android:textSize="14dp"-->
+            <!--android:paddingLeft="40dp"-->
+            <!--android:textStyle="bold"/>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<View-->
+            <!--android:id="@+id/view1"-->
+            <!--android:layout_below="@+id/layout_two"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@color/colorBackgroundGrey"/>-->
+
             <LinearLayout
-                android:id="@+id/layout_two"
-                android:layout_below="@+id/relative_layout"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="15dp">
+                android:layout_height="match_parent"
+                android:background="#f1f1f1">
 
-                <TextView
-                    android:id="@+id/textview_service"
-                    android:layout_width="0dp"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerGrid"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/sans"
-                    android:textColor="@android:color/black"
-                    android:text="Choose The Services"
-                    android:textSize="14dp"
-                    android:textStyle="bold"/>
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
 
-                <TextView
-                    android:id="@+id/see_all_one"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sans"
-                    android:layout_weight="1"
-                    android:textColor="@color/colorPrimary"
-                    android:text="See all"
-                    android:gravity="center"
-                    android:textSize="14dp"
-                    android:paddingLeft="40dp"
-                    android:textStyle="bold"/>
-
+                </android.support.v7.widget.RecyclerView>
             </LinearLayout>
 
-            <View
-                android:id="@+id/view1"
-                android:layout_below="@+id/layout_two"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorBackgroundGrey"/>
+            <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/serviceRecyclerView"-->
+            <!--android:layout_below="@+id/view1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:nestedScrollingEnabled="false"-->
+            <!--android:layout_marginBottom="10dp">-->
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/serviceRecyclerView"
-                android:layout_below="@+id/view1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false">
+            <!--</android.support.v7.widget.RecyclerView>-->
 
-            </android.support.v7.widget.RecyclerView>
-
-            <View
-                android:id="@+id/view"
-                android:layout_below="@+id/serviceRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorBackgroundGrey"/>
+            <!--<View-->
+            <!--android:id="@+id/view"-->
+            <!--android:layout_below="@+id/serviceRecyclerView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@color/colorBackgroundGrey"/>-->
 
             <LinearLayout
                 android:id="@+id/layout_three"
@@ -129,15 +146,15 @@
                 android:padding="15dp">
 
                 <TextView
-                        android:id="@+id/textview_trending"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/sans"
-                        android:textColor="@android:color/black"
-                        android:text="Trending Services"
-                        android:textSize="14dp"
-                        android:textStyle="bold"/>
+                    android:id="@+id/textview_trending"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sans"
+                    android:textColor="@android:color/black"
+                    android:text="Trending Services"
+                    android:textSize="14dp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/see_all_two"
@@ -153,34 +170,34 @@
                     android:textStyle="bold"/>
 
                 <!--<LinearLayout-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:orientation="vertical"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:layout_gravity="center"-->
-                    <!--android:gravity="center_vertical">-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="vertical"-->
+                <!--android:padding="10dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:gravity="center_vertical">-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/textview_trending"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="0dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:fontFamily="@font/sans"-->
-                        <!--android:textColor="@android:color/black"-->
-                        <!--android:text="Trending Services"-->
-                        <!--android:textSize="14dp"-->
-                        <!--android:textStyle="bold"/>-->
+                <!--<TextView-->
+                <!--android:id="@+id/textview_trending"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:fontFamily="@font/sans"-->
+                <!--android:textColor="@android:color/black"-->
+                <!--android:text="Trending Services"-->
+                <!--android:textSize="14dp"-->
+                <!--android:textStyle="bold"/>-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/subtitle_two"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="0dp"-->
-                        <!--android:fontFamily="@font/sans"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:textColor="@color/colorGrey"-->
-                        <!--android:text="Most booked services this month"-->
-                        <!--android:textSize="10dp"/>-->
+                <!--<TextView-->
+                <!--android:id="@+id/subtitle_two"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:fontFamily="@font/sans"-->
+                <!--android:layout_weight="1"-->
+                <!--android:textColor="@color/colorGrey"-->
+                <!--android:text="Most booked services this month"-->
+                <!--android:textSize="10dp"/>-->
 
                 <!--</LinearLayout>-->
 
@@ -191,7 +208,8 @@
                 android:layout_below="@+id/layout_three"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#e2e2e2"
+                android:background="#f1f1f1"
+                android:paddingTop="5dp"
                 android:nestedScrollingEnabled="false"/>
 
             <LinearLayout
@@ -200,16 +218,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp"
-                android:background="#e2e2e2">
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
+                android:background="#f1f1f1">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/popularRecyclerView"
                     android:layout_below="@+id/layout_three"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#dedada"
                     android:nestedScrollingEnabled="false"/>
             </LinearLayout>
 
@@ -253,7 +270,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="#e2e2e2">
+                android:background="#f1f1f1">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/featuredServiceRecyclerView"

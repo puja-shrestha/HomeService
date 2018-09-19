@@ -65,13 +65,13 @@ public class SearchFragment extends Fragment {
     private List<ServiceListingItems> getServiceListingItem() {
         serviceListingItems = new ArrayList<ServiceListingItems>();
 
-        serviceListingItems.add(new ServiceListingItems(R.drawable.repairing, "Home Deep Cleaning", "Rs.500", "(Per hour)","Takes 1 day", "Decoration hand made bag by rudrakshaya's.Decoration hand made."));
-        serviceListingItems.add(new ServiceListingItems(R.drawable.repair, "Home Basic Cleaning","Rs.500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand made."));
-        serviceListingItems.add(new ServiceListingItems(R.drawable.plumber2, "Tank Cleaning Service", "Rs.500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand made."));
-        serviceListingItems.add(new ServiceListingItems(R.drawable.plumber, "On Demand Cleaner","Rs.500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand made."));
-        serviceListingItems.add(new ServiceListingItems(R.drawable.repair_mobile, "Home Painting","Rs.500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand."));
-        serviceListingItems.add(new ServiceListingItems(R.drawable.plumber3, "Home Deep Cleaning", "Rs.500", "(Per hour)","Takes 1 day", "Decoration hand made bag by rudrakshaya's.Decoration."));
-        serviceListingItems.add(new ServiceListingItems(R.drawable.plumber1, "Home Basic Cleaning","Rs.500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand."));
+        serviceListingItems.add(new ServiceListingItems(R.drawable.repairing, "Home Deep Cleaning", "Nrs. 500", "(Per hour)","Takes 1 day", "Decoration hand made bag by rudrakshaya's.Decoration hand made."));
+        serviceListingItems.add(new ServiceListingItems(R.drawable.repair, "Home Basic Cleaning","Nrs. 500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand made."));
+        serviceListingItems.add(new ServiceListingItems(R.drawable.plumber2, "Tank Cleaning Service", "Nrs. 500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand made."));
+        serviceListingItems.add(new ServiceListingItems(R.drawable.plumber, "On Demand Cleaner","Nrs. 500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand made."));
+        serviceListingItems.add(new ServiceListingItems(R.drawable.repair_mobile, "Home Painting","Nrs. 500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand."));
+        serviceListingItems.add(new ServiceListingItems(R.drawable.plumber3, "Home Deep Cleaning", "Nrs. 500", "(Per hour)","Takes 1 day", "Decoration hand made bag by rudrakshaya's.Decoration."));
+        serviceListingItems.add(new ServiceListingItems(R.drawable.plumber1, "Home Basic Cleaning","Nrs. 500","(Per hour)","Takes 1 day","Decoration hand made bag by rudrakshaya's.Decoration hand."));
 
         return serviceListingItems;
     }
