@@ -49,7 +49,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textSize="10dp"
-            android:text="puja@gmail.com"
+            android:text="ram@gmail.com"
             android:gravity="center"/>
 
     </LinearLayout>
@@ -102,7 +102,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="First name"
+                android:text="first name"
                 android:textSize="16dp"/>
             <View
                 android:layout_width="match_parent"
@@ -113,7 +113,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Last name"
+                android:text="last name"
                 android:layout_marginTop="10dp"
                 android:textSize="16dp"/>
             <View
@@ -155,7 +155,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DOB"
+                android:text="dob"
                 android:layout_marginTop="10dp"
                 android:textSize="16dp"/>
             <View
@@ -198,7 +198,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="puja@gmail.com"
+                android:text="email"
                 android:textSize="16dp"
                 android:layout_marginTop="10dp"/>
             <View
@@ -240,7 +240,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+977-9823199697"
+                android:text="9841111111"
                 android:textSize="16dp"
                 android:layout_marginTop="10dp"/>
             <View

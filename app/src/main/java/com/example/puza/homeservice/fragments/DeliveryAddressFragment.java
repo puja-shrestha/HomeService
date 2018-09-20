@@ -1,13 +1,15 @@
 package com.example.puza.homeservice.fragments;
 
-
-import android.app.AlertDialog;
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,12 +17,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.puza.homeservice.R;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
+import com.example.puza.homeservice.activity.MapsActivity;
 
 public class DeliveryAddressFragment extends Fragment {
 
     Button add_new_address, checkout;
+    Dialog dialog;
 
     public DeliveryAddressFragment() {
         // Required empty public constructor
@@ -62,7 +64,7 @@ public class DeliveryAddressFragment extends Fragment {
             public void onClick(View arg0) {
 
                 // Create custom dialog object
-                final Dialog dialog = new Dialog(getContext());
+                dialog = new Dialog(getContext());
                 // Include dialog.xml file
                 dialog.setContentView(R.layout.dialogue_address_template);
                 // Set dialog title
@@ -78,6 +80,23 @@ public class DeliveryAddressFragment extends Fragment {
                 dialog.show();
 
                 Button pinBtn = (Button) dialog.findViewById(R.id.pinBtn);
+                pinBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent i = new Intent(getActivity(), MapsActivity.class);
+                        startActivity(i);
+
+//                      ((Activity) getActivity()).overridePendingTransition(0,0);
+
+//                        MapsFragment fragment = new MapsFragment();
+//                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//                        transaction.replace(R.id.frame_container, fragment);
+//                        transaction.addToBackStack(null);
+//                        transaction.commit();
+
+                    }
+                });
 
                 Button declineButton = (Button) dialog.findViewById(R.id.btn_dialogue);
                 // if decline button is clicked, close the custom dialog
@@ -91,4 +110,13 @@ public class DeliveryAddressFragment extends Fragment {
             }
         });
     }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (dialog != null) {
+            dialog.dismiss();
+            dialog = null;
+        }
+    }
+
 }

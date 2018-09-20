@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.puza.homeservice.R;
+import com.example.puza.homeservice.fragments.DateAndTimeFragment;
 import com.example.puza.homeservice.fragments.services.Tab3;
 import com.example.puza.homeservice.model.AddedServiceItems;
 
@@ -59,7 +60,7 @@ public class AddedServiceAdapter extends RecyclerView.Adapter<AddedServiceAdapte
                             }
                             progressDialog.dismiss();
 
-                            Tab3 fragment = new Tab3();
+                            DateAndTimeFragment fragment = new DateAndTimeFragment();
                             FragmentTransaction transaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
                             transaction.replace(R.id.frame_container, fragment);
                             transaction.addToBackStack(null);

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/linear_date_time"
+    android:layout_below="@id/addedServicesRecyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shedule Date and Time"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:textSize="14dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/etChooseTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="11:00 PM"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/ic_action_calendar_with_a_clock_time_tools"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/button_backgroung_rectangle"/>
+
+        <TextView
+            android:id="@+id/txt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Time"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/btnDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:hint="Apr.08 2018"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/ic_action_clock"
+            android:drawablePadding="5dp"
+            android:background="@drawable/button_backgroung_rectangle"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_select_partners"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select partners"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorOrange"/>
+
+</RelativeLayout>

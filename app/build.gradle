@@ -60,4 +60,10 @@ dependencies {
 
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
 
+    //Google Map
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+
+    //If your minSdkVersion is set to 20 or lower
+    implementation 'com.android.support:multidex:1.0.1'
 }

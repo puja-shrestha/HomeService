@@ -51,16 +51,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Back Press
-//        backPress = (ImageView)findViewById(R.id.backPress);
-//        backPress.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                onBackPressed();
-//            }
-//        });
-
         /*--------------------------- Navigation Drawer --------------------------*/
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
